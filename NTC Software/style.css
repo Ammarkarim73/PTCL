@@ -1,9 +1,10 @@
 body{
     background-image: url(./photo.png);
-        background-size: 100%, 100%;
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
+        margin: 0px;
+        padding: 0px;
 }
 
 
@@ -42,11 +43,14 @@ h1
         background-color: rgba(0, 100, 0, 0.7);
         color: white;
         padding: 30px;
-        margin-top: -16px;
-        margin-left: -9px;
-        margin-right: -9px;
+        margin: 0px;
+        width: 100%;
         scroll-padding: 80px;
     }
+
+.div{
+    width: 100%;
+}
 
 th{
     font-size: 20px;
