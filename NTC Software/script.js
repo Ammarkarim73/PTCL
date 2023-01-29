@@ -13,42 +13,59 @@ if ("serviceWorker" in navigator) {
 // FOR PWA APPLICAION
 
 const myFunction = () => {
-    let abc, filter, ul, li, a, b, i, j, k, txtValue;
+    let abc, filter, ul, li, a, b, c, d, i, j, k, txtValue;
     abc = document.getElementById("myInput");
     filter = abc.value;
     ul = document.getElementsByTagName("tr");
     document.getElementById('ol').innerHTML = '';  
     if(!filter){
         for (i = 0; i < ul.length; i++) {
-            li = ul[i].getElementsByTagName("td"); 
+            li = ul[i].getElementsByTagName("td");
             for (j = 0; j < li.length; j++) {
                 li[j].style.display = "";
             }}
     }else{ 
+        // if(Number(txtValue)){
+        //     console.log('number');
+        // }else{
+        //     console.log('text');
+        // }
     for (i = 0; i < ul.length; i++) {
         li = ul[i].getElementsByTagName("td"); 
+        
         for (j = 0; j < li.length; j++) {
              a = li[j].childNodes;
              for (k = 0; k < a.length; k++) {
                 b = a[k];
                 if(b.id == 'input1'){
                                 txtValue = b.value;
-                                console.log(txtValue.substr(1,txtValue.length));
-                                // if(typeof txtValue == "number"){
-                                //     console.log('number');
-                                // }else{
-                                //     console.log('text');
-                                // }
-            var abcd = txtValue.indexOf(filter) > -1;
-        }
-        if (abcd == true) {
+                                
+                            }
+        
+            
+    for (let index = 0; index < 1; index++) {
+        
+    
+        if (txtValue.indexOf(filter) > -1 == true) {
             li[j].style.display = "";  
-            document.getElementById('ol').innerHTML += '<li>' + b.value +'</li>';
-        } else {
+            c = k;
+            c++;
+            c==1 ? d='first : ':''
+            var br;
+console.log(i==10)
+            if(c == 10){
+                c = 0
+                br = '<br />'}else{br = 'hi'}
+
+                console.log(`<li>${i} ${d} ${b.value}</li>` + br)
+            // document.getElementById('ol').innerHTML += `<li>${i} ${d} ${b.value}</li>`;
+            
+        }
+         else {
             li[j].style.display = "none";
         }
-
-             }
+    }
+    }
 
             
         }
@@ -59,6 +76,7 @@ const myFunction = () => {
 }
 
 window.myFunction = myFunction;
+
 
 
 
