@@ -54,16 +54,16 @@ const myFunction = () => {
             var id;
             var br;
 
-            c==1 ? d='S/NO     : ':''
-            c==2 ? d='T/NO     : ':''
-            c==3 ? d='ADDRESS  : ':''
-            c==4 ? d='N.E      : ':''
-            c==5 ? d='PRY PAIR : ':''
-            c==6 ? d='SEC PAIR : ':''
-            c==7 ? d='MODEM ID : ':''
-            c==8 ? d='NTC BY   : ':''
-            c==9 ? d='DATE     : ':''
-            c==10 ? d='MODEM # : ':''
+            c==1 ? d='T/NO     : ':''
+            c==2 ? d='ADDRESS  : ':''
+            c==3 ? d='N.E      : ':''
+            c==4 ? d='PRY PAIR : ':''
+            c==5 ? d='SEC PAIR : ':''
+            c==6 ? d='MODEM ID : ':''
+            c==7 ? d='NTC BY   : ':''
+            c==8 ? d='DATE     : ':''
+            c==9 ? d='MODEM #  : ':''
+            // c==10 ? d='MODEM #  : ':''
 
 
 
