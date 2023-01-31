@@ -50,7 +50,6 @@ if ("serviceWorker" in navigator) {
 
 
 
-
     // let login_btn = document.getElementById("loginSubmit")
     // login_btn.addEventListener("click", async () => {
     //     let login_email = document.getElementById("loginEmail").value
