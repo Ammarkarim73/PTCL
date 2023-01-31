@@ -12,6 +12,7 @@ if ("serviceWorker" in navigator) {
 
 // FOR PWA APPLICAION
 
+   const myFunction = () => {
     let abc, filter, ul, li, a, b, c, d, i, j, k, txtValue;
     abc = document.getElementById("myInput");
     filter = abc.value;
