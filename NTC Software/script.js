@@ -48,17 +48,30 @@ const myFunction = () => {
     
         if (txtValue.indexOf(filter) > -1 == true) {
             li[j].style.display = "";  
-            c = k;
+            c = j;
             c++;
-            c==1 ? d='first : ':''
+
+            var id;
             var br;
-console.log(i==10)
+
+            c==1 ? d='S/NO     : ':''
+            c==2 ? d='T/NO     : ':''
+            c==3 ? d='ADDRESS  : ':''
+            c==4 ? d='N.E      : ':''
+            c==5 ? d='PRY PAIR : ':''
+            c==6 ? d='SEC PAIR : ':''
+            c==7 ? d='MODEM ID : ':''
+            c==8 ? d='NTC BY   : ':''
+            c==9 ? d='DATE     : ':''
+            c==10 ? d='MODEM # : ':''
+
+
+
             if(c == 10){
                 c = 0
-                br = '<br />'}else{br = 'hi'}
+                br = '<br />'}else{br = ''}
 
-                console.log(`<li>${i} ${d} ${b.value}</li>` + br)
-            // document.getElementById('ol').innerHTML += `<li>${i} ${d} ${b.value}</li>`;
+            document.getElementById('ol').innerHTML += `<li id=""> ${d} ${b.value}</li>` + br + br;
             
         }
          else {
