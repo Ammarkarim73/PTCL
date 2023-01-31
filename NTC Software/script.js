@@ -54,7 +54,13 @@ const myFunction = () => {
             var id;
             var br;
 
-            c==1 ? d='T/NO     : ':''
+            // c==1 ? :''
+            if(c == 1){
+                d='T/NO     : ';
+                id = 'class="first"';
+            }else{
+                id='';
+            }
             c==2 ? d='ADDRESS  : ':''
             c==3 ? d='N.E      : ':''
             c==4 ? d='PRY PAIR : ':''
@@ -71,7 +77,9 @@ const myFunction = () => {
                 c = 0
                 br = '<br />'}else{br = ''}
 
-            document.getElementById('ol').innerHTML += `<li id=""> ${d} ${b.value}</li>` + br + br;
+            document.getElementById('ol').innerHTML += `<li ${id}> ${d} ${b.value}</li>` + br + br;
+            document.getElementsByClassName('first').style.backgroundColor = 'green';
+
             
         }
          else {
