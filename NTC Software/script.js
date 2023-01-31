@@ -12,7 +12,6 @@ if ("serviceWorker" in navigator) {
 
 // FOR PWA APPLICAION
 
-const myFunction = () => {
     let abc, filter, ul, li, a, b, c, d, i, j, k, txtValue;
     abc = document.getElementById("myInput");
     filter = abc.value;
@@ -54,7 +53,6 @@ const myFunction = () => {
             var id;
             var br;
 
-            // c==1 ? :''
             if(c == 1){
                 d='T/NO     : ';
                 id = 'class="first"';
@@ -78,7 +76,6 @@ const myFunction = () => {
                 br = '<br />'}else{br = ''}
 
             document.getElementById('ol').innerHTML += `<li ${id}> ${d} ${b.value}</li>` + br + br;
-            document.getElementsByClassName('first').style.backgroundColor = 'green';
 
             
         }
