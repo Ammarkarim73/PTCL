@@ -30,6 +30,7 @@ const myFunction = () => {
             for (j = 0; j < li.length; j++) {
                 li[j].style.display = "";
             }}
+            document.getElementById('p').innerHTML = '';
     }else{ 
         if(isNaN(filter)){
 
@@ -177,6 +178,7 @@ window.myFunction = myFunction;
 
 // Import the functions you need from the SDKs you need
 	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+	import { getAuth } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
     import { doc, setDoc, collection, getFirestore, getDocs} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 	// TODO: Add SDKs for Firebase products that you want to use
 	// https://firebase.google.com/docs/web/setup#available-libraries
@@ -188,6 +190,7 @@ window.myFunction = myFunction;
 	// Initialize Firebase
 	const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+    const auth = getAuth();
 
     var a = 1;
     let content;
