@@ -1,4 +1,11 @@
 
+setTimeout(() => {
+    document.getElementById('load').className = 'hidden';
+    document.getElementById('block').className = 'block';
+}, 5000);
+
+
+
 
 // function FirstFactorial(num) {
 //     var myVar = 1;
