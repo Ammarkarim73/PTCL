@@ -15,7 +15,7 @@ if ("serviceWorker" in navigator) {
 
 // Import the functions you need from the SDKs you need
 	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword, sendEmailVerification, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
     import {collection, getFirestore, getDocs} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 	// TODO: Add SDKs for Firebase products that you want to use
 	// https://firebase.google.com/docs/web/setup#available-libraries
@@ -62,9 +62,9 @@ if ("serviceWorker" in navigator) {
             icon: 'error',
             title: 'ERROR',
             text: errorMessage,
-            iconColor: 'red',
-            background: 'black',
-            color: 'whitesmoke',
+            iconColor: 'green',
+            background: 'white',
+            color: 'black',
           });
   }else{}
     
@@ -74,9 +74,9 @@ if ("serviceWorker" in navigator) {
         icon: 'error',
         title: 'ERROR',
         text: errorMessage,
-        iconColor: 'red',
-        background: 'black',
-        color: 'whitesmoke',
+        iconColor: 'green',
+            background: 'white',
+            color: 'black',
       });
     }
     if (error.message == 'Firebase: Password should be at least 6 characters (auth/weak-password).'){
@@ -85,9 +85,9 @@ if ("serviceWorker" in navigator) {
         icon: 'info',
         title: 'INVALID PASSWORD',
         text: errorMessage,
-        iconColor: 'red',
-        background: 'black',
-        color: 'whitesmoke',
+        iconColor: 'green',
+            background: 'white',
+            color: 'black',
       });
     }if (error.message == 'Firebase: Error (auth/wrong-password).'){
       errorMessage = 'WRONG PASSWORD ... !';
@@ -95,9 +95,9 @@ if ("serviceWorker" in navigator) {
         icon: 'error',
         title: 'ERROR',
         text: errorMessage,
-        iconColor: 'red',
-        background: 'black',
-        color: 'whitesmoke',
+        iconColor: 'green',
+            background: 'white',
+            color: 'black',
       });
     }if (error.message == 'Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).'){
       errorMessage = 'YOUR ACCOUNT HAS BEED TEMPORARY DISABLED IN CASE OF TOO MANY REQUESTS PLEASE TRYAGAIN LATER ... !';
@@ -105,9 +105,9 @@ if ("serviceWorker" in navigator) {
         icon: 'info',
         title: 'SOMETHING WENT WRONG',
         text: errorMessage,
-        iconColor: 'red',
-        background: 'black',
-        color: 'whitesmoke',
+        iconColor: 'green',
+            background: 'white',
+            color: 'black',
       });
     }if (error.message == 'Firebase: Error (auth/user-disabled).'){
       errorMessage = 'YOUR ACCOUNT HAS BEEN DISABLED ... ! \n PLEASE CONTACT ' + '<a herf="https://mail.google.com/">azlankarim660@gmail.com</a>' + ' FOR SUPPORT ... !';
@@ -115,9 +115,9 @@ if ("serviceWorker" in navigator) {
         icon: 'info',
         title: 'SOMETHING WENT WRONG',
         html: errorMessage,
-        iconColor: 'red',
-        background: 'black',
-        color: 'whitesmoke',
+        iconColor: 'green',
+            background: 'white',
+            color: 'black',
       });
     }if (error.message == 'Firebase: Error (auth/user-not-found).'){
       errorMessage = 'USER NOT FOUND ... !';
@@ -125,9 +125,9 @@ if ("serviceWorker" in navigator) {
         icon: 'error',
         title: 'ERROR',
         text: errorMessage,
-        iconColor: 'red',
-        background: 'black',
-        color: 'whitesmoke',
+        iconColor: 'green',
+            background: 'white',
+            color: 'black',
       });
     }
     });
@@ -148,41 +148,10 @@ window.onload = async () => {
               window.open(doc.data().data, '_self');
             })
         } else {
-        
         }
     })
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // let login_btn = document.getElementById("loginSubmit")
-    // login_btn.addEventListener("click", async () => {
-    //     let login_email = document.getElementById("loginEmail").value
-    //     let login_password = document.getElementById("loginPassword").value
-    //     const docRef = doc(db, "adminInfo", "ua317eNUhNnPetbGE4vT");
-    //     const docSnap = await getDoc(docRef);
-    
-    //     if (docSnap.exists()) {
-    //         if(login_email == docSnap.data().email && login_password == docSnap.data().password){
-    //             window.open("./dashboard/index.html", "_self")
-    //         }else{
-    //             console.log("not-login through admin panel")
-    //         }
-    //     } else {
-    //         console.log("No such information about admin!");
-    //     }
-    // })
 
 
 
