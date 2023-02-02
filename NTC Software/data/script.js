@@ -2,7 +2,7 @@
 setTimeout(() => {
     document.getElementById('load').className = 'hidden';
     document.getElementById('block').className = 'block';
-}, 5000);
+}, 4500);
 
 
 
@@ -185,7 +185,15 @@ window.myFunction = myFunction;
   
 	// Your web app's Firebase configuration
 	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {};
+    const firebaseConfig = {
+        apiKey: "AIzaSyD11dl0pMA7VsWIIeZHnkPOm9l5_raLm-M",
+        authDomain: "ptcl-records.firebaseapp.com",
+        projectId: "ptcl-records",
+        storageBucket: "ptcl-records.appspot.com",
+        messagingSenderId: "710946826238",
+        appId: "1:710946826238:web:29eaba1070c26428ccc2af",
+        measurementId: "G-999D14RRKQ"
+      };
   
 	// Initialize Firebase
 	const app = initializeApp(firebaseConfig);
@@ -1241,8 +1249,18 @@ window.myFunction = myFunction;
             input291: val291,input292: val292,input293: val293,input294: val294,input295: val295,
             input296: val296,input297: val297,input298: val298,input299: val299,input300: val300
          });
-         alert('your data has been stored');
-         window.open('./index.html', '_self');
+         Swal.fire({
+            icon: 'success',
+            title: 'SUCCESS',
+            text: `Your ${mon} Table Has Been Updated!`,
+            iconColor: 'green',
+            background: 'white',
+            color: 'black',
+          });
+          setTimeout(() => {
+            window.open('./index.html', '_self');
+        }, 4000);
+         
       }
       window.updateDoc = updateDoc;
 
@@ -2362,6 +2380,15 @@ const create = `    <center>
 </center>
 `;
 document.getElementById('T').innerHTML += create;
+
+Swal.fire({
+    icon: 'success',
+    title: 'SUCCESS',
+    text: 'New Table Has Been Created!',
+    iconColor: 'green',
+    background: 'white',
+    color: 'black',
+  });
 }
 
 window.createTable = createTable;
