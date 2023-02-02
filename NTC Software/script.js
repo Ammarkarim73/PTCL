@@ -12,6 +12,22 @@ if ("serviceWorker" in navigator) {
 
 // FOR PWA APPLICAION
 
+// Sweet Alert
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+// Sweet Alert
+
 
 // Import the functions you need from the SDKs you need
 	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
@@ -45,6 +61,10 @@ if ("serviceWorker" in navigator) {
         
         signInWithEmailAndPassword(auth, login_email, login_password)
         .then(async (userCredential) => {
+          Toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully!'
+          })
             // Signed in 
             const querySnapshot = await getDocs(collection(db, "Redirect"));
             querySnapshot.forEach((doc) => { 
@@ -143,6 +163,10 @@ window.onload = async () => {
     
     onAuthStateChanged(auth, async (user) => {
         if (user.emailVerified) {
+          Toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully!'
+          })
             const querySnapshot = await getDocs(collection(db, "Redirect"));
             querySnapshot.forEach((doc) => { 
               window.open(doc.data().data, '_self');
