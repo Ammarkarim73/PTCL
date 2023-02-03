@@ -1,9 +1,38 @@
+// Loader
 
 setTimeout(() => {
     document.getElementById('load').className = 'hidden';
     document.getElementById('block').className = 'block';
 }, 4500);
 
+//Loader
+
+
+// Sweet Alert
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
+// Sweet Alert
+
+// toogle table
+
+function toggleTable(id) {
+    id[1].classList.toggle('show');
+}
+
+window.toggleTable = toggleTable;
+
+// toogle table
 
 
 
@@ -178,7 +207,7 @@ window.myFunction = myFunction;
 
 // Import the functions you need from the SDKs you need
 	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-	import { getAuth } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+	import { getAuth, signOut  } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
     import { doc, setDoc, collection, getFirestore, getDocs} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 	// TODO: Add SDKs for Firebase products that you want to use
 	// https://firebase.google.com/docs/web/setup#available-libraries
@@ -199,6 +228,22 @@ window.myFunction = myFunction;
 	const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     const auth = getAuth();
+
+    const signout = document.getElementById('signout');
+
+    signout.addEventListener('click' , () => {
+        Toast.fire({
+            icon: 'success',
+            title: 'Signed out successfully!'
+          })
+        signOut(auth).then(() => {
+              setTimeout(() => {
+                window.open('../Index.html','_self')
+              }, 3000);
+          }).catch((error) => {
+
+          });
+    })
 
     var a = 1;
     let content;
@@ -1274,6 +1319,10 @@ window.myFunction = myFunction;
 
 <p>Month: <input id="${doc.data().month}" class="month" type="text" value="${doc.data().mon}"/></p>
 
+    <div class="dropdown">
+        <button onclick="toggleTable(${doc.data().month})" class="dropbtn">Dropdown</button>
+        <div id="${doc.data().month}" class="dropdown-content">
+
 <table id="${doc.id}" border="1" width="1350px">
 
 
@@ -1814,6 +1863,10 @@ window.myFunction = myFunction;
     <hr />
     <br />
     <br />
+
+        </div>
+      </div>
+
 </center>
 `;
 document.getElementById('T').innerHTML += div;
@@ -1841,6 +1894,14 @@ const createTable = async()=> {
 const create = `    <center>
 
 <p>Month: <input id="month`+J+`" class="month" type="text" value=""/></p>
+
+
+    <div class="dropdown">
+        <button onclick="toggleTable("month`+J+`")" class="dropbtn">Dropdown</button>
+        <div id="month`+J+`" class="dropdown-content">
+
+
+
 
 <table id="table`+J+`" border="1" width="1350px">
 
@@ -2377,6 +2438,9 @@ const create = `    <center>
 <br />
 
     <button id="updateDoc" onclick="updateDoc('table`+ J +`', 'month`+ J +`')">Update</button>
+
+            </div>
+      </div>
 </center>
 `;
 document.getElementById('T').innerHTML += create;
