@@ -26,12 +26,15 @@ const Toast = Swal.mixin({
 
 // toogle table
 
-function toggleTable(id) {
+function toggleTable(id, id2) {
     id[1].classList.toggle('show');
 
-    var zxc = document.getElementById('dropbtn');
+    
+    
+    var zxc = document.getElementById(id2)
+    zxc.classList.toggle('btn');
 
-    zxc.innerText == "Open Table" ? zxc.innerText = 'Close Table' : zxc.innerText = 'Open Table'
+    zxc.innerText == "Open Table" ? zxc.innerText = 'Close Table' : zxc.innerText = 'Open Table';
 }
 
 window.toggleTable = toggleTable;
@@ -218,7 +221,15 @@ window.myFunction = myFunction;
   
 	// Your web app's Firebase configuration
 	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {};
+    const firebaseConfig = {
+        apiKey: "AIzaSyD11dl0pMA7VsWIIeZHnkPOm9l5_raLm-M",
+        authDomain: "ptcl-records.firebaseapp.com",
+        projectId: "ptcl-records",
+        storageBucket: "ptcl-records.appspot.com",
+        messagingSenderId: "710946826238",
+        appId: "1:710946826238:web:29eaba1070c26428ccc2af",
+        measurementId: "G-999D14RRKQ"
+      };
   
 	// Initialize Firebase
 	const app = initializeApp(firebaseConfig);
@@ -1316,7 +1327,7 @@ window.myFunction = myFunction;
 <p>Month: <input id="${doc.data().month}" class="month" type="text" value="${doc.data().mon}"/></p>
 
     <div class="dropdown">
-        <button id="dropbtn" onclick="toggleTable(${doc.data().month})" class="dropbtn">Open Table</button>
+        <button id="${doc.data().month + 73}" onclick="toggleTable(${doc.data().month}, id)" class="dropbtn">Open Table</button>
         <div id="${doc.data().month}" class="dropdown-content">
 
 <table id="${doc.id}" border="1" width="1350px">
@@ -1893,7 +1904,7 @@ const create = `    <center>
 
 
     <div class="dropdown">
-        <button id="dropbtn" onclick="toggleTable(month`+J+`)" class="dropbtn">Open Table</button>
+        <button id="table`+J+`+ 73" onclick="toggleTable(month`+J+`, id)" class="dropbtn">Open Table</button>
         <div id="month`+J+`" class="dropdown-content">
 
 
