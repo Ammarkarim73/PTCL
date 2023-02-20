@@ -202,17 +202,17 @@ transition: 0.5s all;
 #signout{
 text-align: center;
 font-family: Georgia;
-background-color: red;
+background-color: #4C924C;
 color: black;
 margin: auto;
 padding: 10px;
 border: 1px solid rgb(46, 255, 140);
-box-shadow: 0px 0px 5px 10px rgba(245, 245, 245, 0.568) inset;
+box-shadow: 0px 0px 5px 10px rgba(245, 245, 245, 0.568);
 width: 80%;
 transition: 0.5s all;
 }
 #signout:hover{
-box-shadow: 0px 0px 5px 10px rgb(46, 255, 140) inset;
+box-shadow: 0px 0px 5px 10px #6DF86D inset;
 border: 1px solid red;
 cursor: pointer;
 }
