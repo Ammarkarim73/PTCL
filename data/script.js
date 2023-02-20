@@ -2560,12 +2560,14 @@ const uploadFiles = (file, fileName, child) => {
           if(upLoad == "Upload is 100% done"){
             Toast.fire({
               icon: 'success',
-              title: 'Picture Uploaded Successfully..!'
+              title: 'Picture Uploaded Successfully..!',
+              position: 'center',
           });
         }else{        
           Toast.fire({
           icon: 'success',
-          title: 'Uploading ' + progress + '% done'
+          title: 'Uploading ' + progress + '% done',
+          position: 'center',
         });}
           switch (snapshot.state) {
             case "paused":
