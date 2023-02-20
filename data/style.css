@@ -29,7 +29,7 @@ width: 100%;
 
 .flex{
 display: flex;
-justify-content: space-around;
+justify-content: space-between;
 }
 
 .first{
@@ -68,7 +68,7 @@ border: 1px solid #ddd;
     word-spacing: 10px;
 
 }
-h1 
+#h1 
 { text-align: center;
     font-family: Georgia;
     background-color: rgba(0, 100, 0, 0.7);
@@ -199,22 +199,30 @@ cursor: pointer;
 transition: 0.5s all;
 }
 
+h1{
+    width: 100%;
+}
+
+
 #signout{
 text-align: center;
 font-family: Georgia;
 background-color: #4C924C;
-color: black;
+color: white;
+font-weight: bold;
 margin: auto;
 padding: 10px;
-border: 1px solid rgb(46, 255, 140);
-box-shadow: 0px 0px 5px 10px rgba(245, 245, 245, 0.568);
-width: 80%;
+border: none;
+border-radius: 20px;
+box-shadow: 0px 0px 1px 8px rgba(245, 245, 245, 0.568);
+width: 80px;
 transition: 0.5s all;
 }
 #signout:hover{
-box-shadow: 0px 0px 5px 10px #6DF86D inset;
-border: 1px solid red;
+box-shadow: 0px 0px 1px 8px #6DF86D ;
 cursor: pointer;
+background-color: white;
+color: black;
 }
 
 .dropdown{
