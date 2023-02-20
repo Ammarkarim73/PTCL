@@ -2562,12 +2562,14 @@ const uploadFiles = (file, fileName, child) => {
               icon: 'success',
               title: 'Picture Uploaded Successfully..!',
               position: 'center',
+              toast: false,
           });
         }else{        
           Toast.fire({
           icon: 'success',
           title: 'Uploading ' + progress + '% done',
           position: 'center',
+          toast: false,
         });}
           switch (snapshot.state) {
             case "paused":
