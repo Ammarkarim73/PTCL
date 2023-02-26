@@ -216,7 +216,15 @@ window.myFunction = myFunction;
   
 	// Your web app's Firebase configuration
 	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {};
+    const firebaseConfig = {
+        apiKey: "AIzaSyD11dl0pMA7VsWIIeZHnkPOm9l5_raLm-M",
+        authDomain: "ptcl-records.firebaseapp.com",
+        projectId: "ptcl-records",
+        storageBucket: "ptcl-records.appspot.com",
+        messagingSenderId: "710946826238",
+        appId: "1:710946826238:web:29eaba1070c26428ccc2af",
+        measurementId: "G-999D14RRKQ"
+      };
   
 	// Initialize Firebase
 	const app = initializeApp(firebaseConfig);
@@ -2585,3 +2593,44 @@ const uploadFiles = (file, fileName, child) => {
 
 
 // MODEM PIC UPLOAD
+
+
+
+// PDF Downloader
+
+
+const downloadSheet = (e) => {
+    const elementMonth = e.target.parentElement.parentElement.parentElement.previousElementSibling.parentElement.attributes[0].value;
+    const centerElement = document.getElementsByTagName('center')
+
+    document.getElementsByClassName('div')[0].className = 'hidden';
+    document.getElementById('signout').className = 'hidden'
+    document.getElementsByTagName('h1')[0].className = 'hidden';
+
+    centerElement.forEach(event => {
+        if(event.attributes[0].value.indexOf(elementMonth) > -1 == true){
+            event.className = '';
+            var opt = {
+                margin:       0,
+                filename:     'myfile.pdf',
+                html2canvas:  { scale: 1 , width: 1500, height: 7000,},
+                jsPDF:        { unit: 'in', format: 'tabloid', orientation: 'p' },
+                enableLinks:  true,
+              };
+            html2pdf(event, opt);
+            setTimeout(() => {
+                window.open('./index.html', '_self');
+            }, 20000);
+        }else{
+        event.className = 'hidden';
+
+        }
+    });
+    
+    
+    
+}
+
+window.downloadSheet = downloadSheet;
+
+// PDF Downloader
