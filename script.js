@@ -38,7 +38,15 @@ const Toast = Swal.mixin({
   
 	// Your web app's Firebase configuration
 	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {};
+  const firebaseConfig = {
+    apiKey: "AIzaSyD11dl0pMA7VsWIIeZHnkPOm9l5_raLm-M",
+    authDomain: "ptcl-records.firebaseapp.com",
+    projectId: "ptcl-records",
+    storageBucket: "ptcl-records.appspot.com",
+    messagingSenderId: "710946826238",
+    appId: "1:710946826238:web:29eaba1070c26428ccc2af",
+    measurementId: "G-999D14RRKQ"
+  };
   
 	// Initialize Firebase
 	const app = initializeApp(firebaseConfig);
