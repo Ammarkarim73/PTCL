@@ -138,6 +138,10 @@ width: 100px;
     width: 200px;
 }
 
+.modemID{
+    width: 200px;
+}
+
 button#updateDoc{
 margin-right: 10px;
 width: 200px;
