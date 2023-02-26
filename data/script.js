@@ -43,15 +43,8 @@ window.toggleTable = toggleTable;
 
 
 
-// function FirstFactorial(num) {
-//     var myVar = 1;
-//     for (var i = 1; i <= num; i++) {
-//       myVar = myVar * i;
-//       return myVar;
-//     }
-//   };
-  
-//   console.log(FirstFactorial(5));
+
+// Search Box filter Values
 
 const myFunction = () => {
     let abc, filter, ul, li, a, b, c, d, e, f, g, i, j, k, txtValue;
@@ -85,9 +78,7 @@ const myFunction = () => {
                                     }
                 
             if(txtValue != undefined && txtValue != ''){
-                // if(e != undefined && e != ''){
-                //     f=e;
-                // }
+            
             for (let index = 0; index < 1; index++) {
             
                 if (txtValue.indexOf(filter) > -1 == true) {
@@ -208,6 +199,8 @@ const myFunction = () => {
 window.myFunction = myFunction;
 
 
+
+// Search Box filter Values
 
 
 
@@ -1347,7 +1340,7 @@ window.myFunction = myFunction;
 
         const querySnapshot = await getDocs(collection(db, "table"));
         querySnapshot.forEach((doc) => { 
-            const div = `    <center>
+            const div = `    <center name="${doc.data().month}">
 
 <p>Month: <input id="${doc.data().month}" class="month" type="text" value="${doc.data().mon}"/></p>
 
@@ -1365,7 +1358,7 @@ window.myFunction = myFunction;
         <th>N.E</th>
         <th>PRY PAIR</th>
         <th>SEC PAIR</th>
-        <th>MODEM ID</th>
+        <th id="modemID">MODEM ID</th>
         <th>NTC BY</th>
         <th>DATE</th>
         <th colspan="11">MODEM #</th>
@@ -1888,8 +1881,11 @@ window.myFunction = myFunction;
 
 <br />
 <br />
-
+            <div class="flex">
     <button id="updateDoc" onclick="updateDocument('${doc.id}', '${doc.data().month}')">Update</button>
+    <button id="downloadDoc" onclick="downloadSheet(event)">Download this sheet PDF</button>      
+    </div>
+    
     <br />
     <br />
     <hr />
@@ -1945,7 +1941,7 @@ const create = `    <center>
         <th>N.E</th>
         <th>PRY PAIR</th>
         <th>SEC PAIR</th>
-        <th>MODEM ID</th>
+        <th id="modemID">MODEM ID</th>
         <th>NTC BY</th>
         <th>DATE</th>
         <th colspan="11">MODEM #</th>
@@ -2469,8 +2465,10 @@ const create = `    <center>
 <br />
 <br />
 
+        <div class="flex">
     <button id="updateDoc" onclick="updateDocument('table`+ J +`', 'month`+ J +`')">Update</button>
-
+    <button id="downloadDoc" onclick="downloadSheet(event)">Download this sheet PDF</button>
+        </div>
             </div>
       </div>
 </center>
@@ -2560,16 +2558,12 @@ const uploadFiles = (file, fileName, child) => {
           if(upLoad == "Upload is 100% done"){
             Toast.fire({
               icon: 'success',
-              title: 'Picture Uploaded Successfully..!',
-              position: 'center',
-              toast: false,
+              title: 'Picture Uploaded Successfully..!'
           });
         }else{        
           Toast.fire({
           icon: 'success',
-          title: 'Uploading ' + progress + '% done',
-          position: 'center',
-          toast: false,
+          title: 'Uploading ' + progress + '% done'
         });}
           switch (snapshot.state) {
             case "paused":
@@ -2599,3 +2593,44 @@ const uploadFiles = (file, fileName, child) => {
 
 
 // MODEM PIC UPLOAD
+
+
+
+// PDF Downloader
+
+
+const downloadSheet = (e) => {
+    const elementMonth = e.target.parentElement.parentElement.parentElement.previousElementSibling.parentElement.attributes[0].value;
+    const centerElement = document.getElementsByTagName('center')
+
+    document.getElementsByClassName('div')[0].className = 'hidden';
+    document.getElementById('signout').className = 'hidden'
+    document.getElementsByTagName('h1')[0].className = 'hidden';
+
+    centerElement.forEach(event => {
+        if(event.attributes[0].value.indexOf(elementMonth) > -1 == true){
+            event.className = '';
+            var opt = {
+                margin:       0,
+                filename:     'myfile.pdf',
+                html2canvas:  { scale: 1 , width: 1500, height: 7000,},
+                jsPDF:        { unit: 'in', format: 'tabloid', orientation: 'p' },
+                enableLinks:  true,
+              };
+            html2pdf(event, opt);
+            setTimeout(() => {
+                window.open('./index.html', '_self');
+            }, 20000);
+        }else{
+        event.className = 'hidden';
+
+        }
+    });
+    
+    
+    
+}
+
+window.downloadSheet = downloadSheet;
+
+// PDF Downloader
